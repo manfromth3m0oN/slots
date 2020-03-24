@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.slot {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<img class="slot" id="reel1" src="./assets/seven.png">
+		<img class="slot" id="reel2" src="./assets/seven.png">
+		<img class="slot" id="reel3" src="./assets/seven.png">
+
+		<p><button type="button" onclick="changeReels()">Change Reels</button></p>
+
+		<script>
+		var list = [
+		    "./assets/bar.png",
+		    "./assets/bell.png",
+		    "./assets/cherry.png",
+		    "./assets/clover.png",
+		    "./assets/coin.png",
+		    "./assets/diamond.png",
+		    "./assets/grapes.png",
+		    "./assets/heart.png",
+		    "./assets/horseshoe.png",
+		    "./assets/lemon.png",
+		    "./assets/orange.png",
+		    "./assets/plum.png",
+		    "./assets/question.png",
+		    "./assets/seven.png",
+		    "./assets/watermelon.png"
+		];
+
+		function changeReels() {
+			index1 = Math.floor(Math.random() * 10);
+			index2 = Math.floor(Math.random() * 10);
+			index3 = Math.floor(Math.random() * 10);
+
+
+		    var image = document.getElementById('reel1');
+		    image.src=list[index1];
+		    var image = document.getElementById('reel2');
+		    image.src=list[index2];
+		    var image = document.getElementById('reel3');
+		    image.src=list[index3];
+
+
+		}
+		</script>
+	</body>
+</html>
+
