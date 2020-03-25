@@ -1,0 +1,26 @@
+html {
+	font-family: 'Montserrat', sans-serif;
+}
+.slot {
+	width: 200px;
+	height: 200px;
+}
+button {
+	background-color: #7851a9;
+	color: white;
+	border: none;
+	padding: 15px 50px;
+	text-decoration: none;
+}
+.log {
+	border: 1px solid black;
+}
+.container {
+	padding: 50px;
+}
+h1 {
+	font-size: 72px;
+}
+.cashout {
+	float: right
+}

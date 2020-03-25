@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href="index.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-		<style>
-			html {
-				font-family: 'Montserrat', sans-serif;
-			}
-			.slot {
-				width: 200px;
-				height: 200px;
-			}
-			button {
-				background-color: #7851a9;
-				color: white;
-				border: none;
-				padding: 15px 50px;
-				text-decoration: none;
-			}
-		</style>
 		<title>Slots</title>
 	</head>
 	<body>
-		<center>
+		<button type="button" class="cashout" onclick="cashout()">Cash Out</button>
+		<center class="container">
 			<h1>Slots</h1>
 			<img class="slot" id="reel1" src="./assets/seven.png">
 			<img class="slot" id="reel2" src="./assets/seven.png">
@@ -30,61 +16,11 @@
 			<img class="slot" id="reel5" src="./assets/seven.png">
 
 			<p id="tokens"></p>
-			<p><button type="button" onclick="changeReels()">Change Reels</button></p>
+			<p><button type="button" onclick="changeReels()">Spin!</button></p>
 		</center>
-		<script>
-		var list = [
-		    "./assets/bar.png",
-		    "./assets/bell.png",
-		    "./assets/cherry.png",
-		    "./assets/clover.png",
-		    "./assets/coin.png",
-		    "./assets/diamond.png",
-		    "./assets/grapes.png",
-		    "./assets/heart.png",
-		    "./assets/horseshoe.png",
-		    "./assets/lemon.png",
-		    "./assets/orange.png",
-		    "./assets/plum.png",
-		    "./assets/question.png",
-		    "./assets/seven.png",
-		    "./assets/watermelon.png"
-		];
-		
-		let tokens = 10
-		document.getElementById("tokens").innerHTML = tokens; 
-
-		function changeReels() {
-			if (tokens != 0) {
-			tokens--;
-			document.getElementById("tokens").innerHTML = tokens; 
-			index1 = Math.floor(Math.random() * 10);
-			index2 = Math.floor(Math.random() * 10);
-			index3 = Math.floor(Math.random() * 10);
-			index4 = Math.floor(Math.random() * 10);
-			index5 = Math.floor(Math.random() * 10);
-			
-				if ( index1 && index2 && index3 && index4 && index5) {
-					tokens = tokens + 100
-				}
-
-			var image = document.getElementById('reel1');
-			image.src=list[index1];
-			var image = document.getElementById('reel2');
-			image.src=list[index2];
-			var image = document.getElementById('reel3');
-			image.src=list[index3];
-			var image = document.getElementById('reel4');
-			image.src=list[index4];
-			var image = document.getElementById('reel5');
-			image.src=list[index5];
-			} else {
-				alert("your out of tokens")
-			}
-
-
-		}
-		</script>
+			<pre id="log" class="log"></pre>
+			<br/>
+		<script src="index.js"></script>
 	</body>
 </html>
 
