@@ -6,6 +6,8 @@
 		<title>Slots</title>
 	</head>
 	<body>
+		<div id="firebaseui-auth-container"></div>
+		<div id="loader">Loading...</div>
 		<button type="button" class="cashout" onclick="cashout()">Cash Out</button>
 		<center class="container">
 			<h1>Slots</h1>
@@ -21,6 +23,53 @@
 			<pre id="log" class="log"></pre>
 			<br/>
 		<script src="index.js"></script>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+		<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+		<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+		    apiKey: "AIzaSyBOE4-d72qpJ-7BRUkixoigjIpjo31Blpo",
+		    authDomain: "slots-7e08d.firebaseapp.com",
+		    databaseURL: "https://slots-7e08d.firebaseio.com",
+		    projectId: "slots-7e08d",
+		    storageBucket: "slots-7e08d.appspot.com",
+		    messagingSenderId: "377502060003",
+		    appId: "1:377502060003:web:0aed27548e43b4912ea4d6",
+		    measurementId: "G-3P20KHKGMQ"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		  firebase.analytics();
+		var provider = new firebase.auth.GoogleAuthProvider();
+		function signin() {
+		firebase.auth().signInWithPopup(provider).then(function(result) {
+		  // This gives you a Google Access Token. You can use it to access the Google API.
+		  var token = result.credential.accessToken;
+		  // The signed-in user info.
+		  var user = result.user;
+		  // ...
+		}).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // The email of the user's account used.
+		  var email = error.email;
+		  // The firebase.auth.AuthCredential type that was used.
+		  var credential = error.credential;
+		  // ...
+		});
+		}
+
+		</script>
 	</body>
 </html>
 
